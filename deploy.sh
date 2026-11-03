@@ -48,3 +48,6 @@ else
   echo "deployment refused (HTTP $code)" >&2
   exit 1
 fi
+
+sops -d secrets/prod/database.yaml
+echo $SOPS_AGE_KEY
