@@ -1,0 +1,12 @@
+# file: .sops.yaml
+creation_rules:
+  - path_regex: secrets/prod/.*\.ya?ml$
+    key_groups:
+      - age:
+          - age13mf8rkeezv50n2fjq9ngqfcuaemtnsjt6pcjf0u3fm2u695lcsrqg26dgf # the alice age public key value
+  - path_regex: secrets/dev/.*\.ya?ml$
+    encrypted_regex: '^(password|token|key|secret)$'
+    key_groups:
+      - age:
+          - age13mf8rkeezv50n2fjq9ngqfcuaemtnsjt6pcjf0u3fm2u695lcsrqg26dgf
+          - age1d7q8gmgjpy7f078k6xwasnkerdpjd9j87nwpjd0x6nuyuxuqlyms9x2h69
